@@ -10,3 +10,6 @@ alias hg="history |grep"
 
 # crypto
 alias sha1="openssl sha1"
+
+# etc
+alias ap="ansible-playbook"
