@@ -8,6 +8,19 @@ case $- in
       *) return;;
 esac
 
+# pager stuff
+export PAGER="less"
+export GROFF_NO_SGR=1
+
+# less colors
+export LESS_TERMCAP_mb=$'\e[1;34m'
+export LESS_TERMCAP_md=$'\e[1;34m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[01;37m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[1;4;31m'
+
 # Debian Packaging stuff
 DEBEMAIL="marv@der-marv.de"
 DEBFULLNAME="Marvin Stark"
