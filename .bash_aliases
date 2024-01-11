@@ -23,6 +23,9 @@ update_system () {
     elif [ $DISTRO_ID == "debian" ]
     then
         sudo apt update && sudo apt upgrade
+    elif [ $DISTRO_ID == "fedora" ]
+    then
+	sudo dnf upgrade
     else
         echo "Distribution unkown."
     fi
