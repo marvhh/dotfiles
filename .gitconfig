@@ -13,6 +13,7 @@
     ca = commit -a
     cm = commit -m
     co = checkout
+    ce = clone
     cam = commit -am
     d = diff
     dc = diff --cached
