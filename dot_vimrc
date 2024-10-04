@@ -88,10 +88,11 @@ syntax enable
 " Set regular expression engine automatically
 set regexpengine=0
 
-try
-    colorscheme slate
-catch
-endtry
+" dont use colorcheme
+"try
+"    colorscheme slate
+"catch
+"endtry
 
 set background=dark
 
