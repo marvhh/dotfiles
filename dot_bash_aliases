@@ -2,6 +2,7 @@
 alias fucking="sudo "
 alias apt="sudo apt"
 alias update=update_system
+alias update-firmwares=update_firmwares
 
 # shell stuff
 alias c="clear"
@@ -40,6 +41,12 @@ update_system () {
     else
         echo "Distribution unkown."
     fi
+}
+
+# Trigger fwupdmgr to upgrade firmwares.
+update_firmwares () {
+    sudo fwupdmgr refresh --force
+    sudo fwupdmgr upgrade
 }
 
 # change kubernetes namespace
