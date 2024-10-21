@@ -1,6 +1,6 @@
 [user]
 	name = Marvin Stark
-	email = marv@der-marv.de
+	email = mstark@compositiv.com
 [core]
     editor = vim
 [push]
@@ -18,7 +18,4 @@
     d = diff
     dc = diff --cached
     s = status
-
-[includeIf "gitdir:~/work/repos"]
-    path = ~/.gitconfig-work
 
