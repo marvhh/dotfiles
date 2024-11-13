@@ -17,9 +17,9 @@ alias sha1="openssl sha1"
 alias ap="ansible-playbook"
 alias backup="sudo borgmatic --verbosity 1 --progress --stats"
 
-# kubernetes/minikube
-alias k="minikube kubectl --"
-alias kubectl="minikube kubectl --"
+# kubectl
+alias k="kubectl"
+complete -F __start_kubectl k
 alias kn=kubectlns
 
 #
