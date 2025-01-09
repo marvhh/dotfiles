@@ -37,7 +37,10 @@ update_system () {
         sudo apt update && sudo apt upgrade
     elif [ $DISTRO_ID == "fedora" ]
     then
+        echo "Updating dnf packages:"
 		sudo dnf upgrade
+        echo "Updating flatpak packages:"
+        flatpak update
     else
         echo "Distribution unkown."
     fi
