@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=GoLand
+Type=Application
+Comment=GoLand
+Exec=/home/marv/apps/goland/bin/goland
+Terminal=false
+Icon=/home/marv/apps/goland/bin/goland.png
+GenericName=GoLand
+Categories=Development;IDE
+MimeType=application/x-player-worksheet;
