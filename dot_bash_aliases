@@ -38,7 +38,8 @@ update_system () {
     elif [ $DISTRO_ID == "fedora" ]
     then
         echo "Updating dnf packages:"
-		sudo dnf upgrade
+    	sudo dnf upgrade --refresh
+
         echo "Updating flatpak packages:"
         flatpak update
     else
