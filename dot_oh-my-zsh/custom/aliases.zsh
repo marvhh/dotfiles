@@ -1,0 +1,69 @@
+# system maint
+alias fucking="sudo "
+alias apt="sudo apt"
+alias update=update_system
+alias update-firmwares=update_firmwares
+
+# shell stuff
+alias c="clear"
+alias r="reset"
+alias hg="history | grep"
+alias rgrep="grep -r"
+
+# crypto
+alias sha1="openssl sha1"
+
+# etc
+alias ap="ansible-playbook"
+alias backup="sudo borgmatic --verbosity 1 --progress --stats"
+
+# kubectl
+alias k="kubectl"
+# Enable kubectl completion for zsh
+if command -v kubectl &>/dev/null; then
+  source <(kubectl completion zsh)
+fi
+alias kn=kubectlns
+
+#
+# functions
+#
+
+# Trigger package upgrade for different Distributions.
+update_system() {
+    local DISTRO_ID=$(grep "^ID=" /etc/os-release | cut -d "=" -f2)
+    if [[ $DISTRO_ID == "arch" ]]; then
+        sudo pacman -Syu
+    elif [[ $DISTRO_ID == "debian" ]]; then
+        sudo apt update && sudo apt upgrade
+    elif [[ $DISTRO_ID == "fedora" ]]; then
+        echo "Updating dnf packages:"
+        sudo dnf upgrade --refresh
+
+        echo "Updating flatpak packages:"
+        flatpak update
+    else
+        echo "Distribution unknown."
+    fi
+}
+
+# Trigger fwupdmgr to upgrade firmwares.
+update_firmwares() {
+    sudo fwupdmgr refresh --force
+    sudo fwupdmgr upgrade
+}
+
+# change kubernetes namespace
+kubectlns() {
+    local ctx=$(kubectl config current-context)
+    local ns=$1
+
+    # verify that the namespace exists
+    ns=$(kubectl get namespace $1 --no-headers --output=go-template={{.metadata.name}} 2>/dev/null)
+    if [[ -z "${ns}" ]]; then
+        echo "Namespace (${1}) not found, using default"
+        ns="default"
+    fi
+
+    kubectl config set-context ${ctx} --namespace="${ns}"
+}
