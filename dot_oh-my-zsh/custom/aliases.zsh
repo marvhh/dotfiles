@@ -50,7 +50,8 @@ update_system() {
 # Trigger fwupdmgr to upgrade firmwares.
 update_firmwares() {
     sudo fwupdmgr refresh --force
-    sudo fwupdmgr upgrade
+    sudo fwupdmgr get-updates
+    sudo fwupdmgr update
 }
 
 # change kubernetes namespace
